@@ -1,0 +1,124 @@
+{
+  "cases": [
+    {
+      "boundary": "none",
+      "expected": "allow",
+      "grant": "absent",
+      "id": "local-allow",
+      "issue": "none",
+      "mode": "local",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "allow",
+      "grant": "current",
+      "id": "current-grant-allow",
+      "issue": "none",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "absent",
+      "id": "absent-grant",
+      "issue": "embedding-grant-absent",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "stale",
+      "id": "stale-grant",
+      "issue": "embedding-grant-lifecycle-denied",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "revoked",
+      "id": "revoked-grant",
+      "issue": "embedding-grant-lifecycle-denied",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "wrong-provider",
+      "id": "wrong-provider",
+      "issue": "embedding-grant-scope-mismatch",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "over-broad",
+      "id": "over-broad-scope",
+      "issue": "embedding-grant-scope-over-broad",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "treats-endpoint-bearer-as-egress-authority",
+      "expected": "deny",
+      "grant": "current",
+      "id": "bearer-overclaim",
+      "issue": "embedding-authority-overclaim",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "promotes-ambient-egress",
+      "expected": "deny",
+      "grant": "current",
+      "id": "ambient-overclaim",
+      "issue": "embedding-authority-overclaim",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": true,
+      "workspace_present": true
+    },
+    {
+      "boundary": "none",
+      "expected": "deny",
+      "grant": "absent",
+      "id": "missing-purpose",
+      "issue": "embedding-scope-fact-missing",
+      "mode": "remote",
+      "provider_present": true,
+      "purpose_present": false,
+      "workspace_present": true
+    }
+  ],
+  "non_claims": [
+    "an embedding allow does not transfer data or execute an embedder",
+    "endpoint bearer authentication never authorizes remote embedding",
+    "provider correctness and embedding quality stay outside the policy",
+    "key custody and transport remain consumer-owned",
+    "revocation currentness beyond supplied lifecycle facts remains consumer-owned",
+    "the zvec-grep reference is a bounded comparison, not parity or ported code"
+  ],
+  "policy_id": "embedding-egress-v1",
+  "schema": "basalt.embedding-auth-steel-fixtures.v1"
+}

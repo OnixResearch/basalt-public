@@ -1,0 +1,25 @@
+{
+  "local_first": "allow-local-without-grant",
+  "non_claims": [
+    "an embedding allow does not transfer data or execute an embedder",
+    "endpoint bearer authentication never authorizes remote embedding",
+    "provider correctness and embedding quality stay outside the policy",
+    "key custody and transport remain consumer-owned",
+    "revocation currentness beyond supplied lifecycle facts remains consumer-owned",
+    "the zvec-grep reference is a bounded comparison, not parity or ported code"
+  ],
+  "policy_id": "embedding-egress-v1",
+  "reference": {
+    "claim": "bounded-comparison-only",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/zvec-ai/zvec-grep",
+    "revision": "309a66995809243d3274fa8b5bea63ab11dda1a0"
+  },
+  "remote_without_grant": "deny",
+  "schema": "basalt.embedding-auth-policy.v1",
+  "scope_fields": [
+    "workspace",
+    "provider",
+    "purpose"
+  ]
+}
